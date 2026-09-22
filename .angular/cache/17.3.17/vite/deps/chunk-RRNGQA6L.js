@@ -110,7 +110,7 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-GSEU53OH.js";
+} from "./chunk-CLTUEIPS.js";
 
 // node_modules/@angular/common/fesm2022/common.mjs
 var _DOM = null;
@@ -9001,6 +9001,13 @@ export {
   PathLocationStrategy,
   HashLocationStrategy,
   Location,
+  NgClass,
+  NgForOf,
+  NgIf,
+  NgStyle,
+  NgTemplateOutlet,
+  CommonModule,
+  isPlatformBrowser,
   ViewportScroller,
   BrowserDomAdapter,
   BrowserGetTestability,
@@ -9062,4 +9069,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-35AOMQM3.js.map
+//# sourceMappingURL=chunk-RRNGQA6L.js.map
