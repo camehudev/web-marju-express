@@ -2,6 +2,12 @@
 <app-nav-bar></app-nav-bar>
 <app-footer></app-footer>
 
+<!-- Overlay de Loading Global -->
+<div *ngIf="loadingService.isLoading()" class="loading-overlay">
+  <p-progressSpinner styleClass="custom-spinner" strokeWidth="4" fill="transparent" animationDuration=".5s"></p-progressSpinner>
+  <span class="loading-text">A processar...</span>
+</div>
+
 
 
 

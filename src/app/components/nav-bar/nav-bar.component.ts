@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { CameraComponent } from '../../pages/camera/camera.component';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule, CameraComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -21,7 +22,8 @@ export class NavBarComponent implements OnInit {
             },
             {
                 label: 'Novo Produto',
-                icon: 'pi pi-star'
+                icon: 'pi pi-star',
+                routerLink: 'camera' // Adicione o routerLink para a rota da câmera
             },
             {
                 label: 'Rotas',
