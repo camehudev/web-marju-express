@@ -4,6 +4,7 @@ import {
   RouterModule
 } from "./chunk-5MGUF5ZW.js";
 import "./chunk-Y6VDGAZN.js";
+import "./chunk-2IRRX5HF.js";
 import {
   BaseIcon,
   ConnectedOverlayScrollHandler,
@@ -19,7 +20,6 @@ import {
   UniqueComponentId,
   zindexutils
 } from "./chunk-MW6N3XTI.js";
-import "./chunk-2IRRX5HF.js";
 import {
   CommonModule,
   DOCUMENT,
