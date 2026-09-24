@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { WebhookService } from '../../services/webhook.service';
+import { CameraService } from '../../services/camera.service';
 
 @Component({
   selector: 'app-camera',
@@ -20,18 +21,16 @@ export class CameraComponent {
   constructor(
     // private http: HttpClient,
     // private messageService: MessageService,
-    private scanService: WebhookService
+    private scanService: CameraService
   ) {}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {    
 
-      this.scanService.enviarImagemEtiqueta(file).subscribe({
-        next: (response: any) => {
-
-          this.resposta = response; // Recebe o JSON estruturado diretamente do n8n!          
-          console.log('Dados da etiqueta:', response);
+      this.scanService.scanImage(file).subscribe({
+        next: (response: any) => {         
+          this.resposta = response.resultado; // Recebe o JSON estruturado diretamente do n8n!          
         },
         error: (err: any) => {
           console.error('Erro ao processar imagem:', err);

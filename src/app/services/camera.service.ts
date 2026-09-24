@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 export class CameraService {
   // Cole aqui o URL de produção (Production URL) do webhook do n8n
   //private n8nWebhookUrl = 'webhook/84ed9913-5511-42a1-b4df-79997f7a4def';
-  private n8nWebhookUrl = 'webhook/84ed9913-5511-42a1-b4df-79997f7a4def';
+  private n8nWebhookUrl = 'http://localhost:8000';
 
-  private readonly apiUrl = 'webhook-test/84ed9913-5511-42a1-b4df-79997f7a4def'; // Substitua pelo URL do seu backend
+  private readonly apiUrl = 'https://pessoal-marju-express.sjj3wv.easypanel.host'; // Substitua pelo URL do seu backend
 
   constructor(private http: HttpClient) {}
 
@@ -19,6 +19,6 @@ export class CameraService {
     formData.append('file', file, file.name);
 
     // Envia o FormData diretamente para o n8n
-    return this.http.post<any>(this.apiUrl, formData);
+    return this.http.post<any>(`${this.apiUrl}/stock/scan-image`, formData);
   }
 }
