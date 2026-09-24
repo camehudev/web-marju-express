@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
-import { CameraService } from '../../services/camera.service';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
+import { WebhookService } from '../../services/webhook.service';
 
 @Component({
   selector: 'app-camera',
@@ -20,14 +20,14 @@ export class CameraComponent {
   constructor(
     // private http: HttpClient,
     // private messageService: MessageService,
-    private scanService: CameraService
+    private scanService: WebhookService
   ) {}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
     if (file) {    
 
-      this.scanService.scanImage(file).subscribe({
+      this.scanService.enviarImagemEtiqueta(file).subscribe({
         next: (response: any) => {
 
           this.resposta = response; // Recebe o JSON estruturado diretamente do n8n!          

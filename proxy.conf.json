@@ -1,6 +1,6 @@
 {
   "/webhook/*": {
-    "target": "https://pessoal-n8n-start.sjj3wv.easypanel.host",
+    "target": "https://pessoal-n8n-start.sjj3wv.easypanel.host/",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"
