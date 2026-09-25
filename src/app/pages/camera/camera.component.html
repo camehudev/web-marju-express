@@ -10,11 +10,12 @@
   (change)="onFileSelected($event)">
 
 <!-- Botão estilizado do PrimeNG para disparar a câmera -->
-<p-button 
-  label="Escanear Etiqueta" 
-  icon="pi pi-camera" 
-  styleClass="p-button-raised p-button-primary" 
-  (onClick)="fileInput.click()">
+<!-- Botão estilizado do PrimeNG corrigido com evento do Angular -->
+<p-button
+  label="Escanear Etiqueta"
+  icon="pi pi-camera"
+  styleClass="p-button-raised p-button-primary"
+  (click)="abrirCamera()">
 </p-button>
 
 

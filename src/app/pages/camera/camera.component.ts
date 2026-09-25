@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
@@ -24,6 +24,13 @@ export class CameraComponent {
     // private messageService: MessageService,
     private scanService: CameraService
   ) {}
+
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
+abrirCamera() {
+  // Dispara o clique programaticamente de forma segura para o WebView do Android
+  this.fileInput.nativeElement.click();
+}
 
   onFileSelected(event: any) {
     const file: File = event.target.files[0];
