@@ -4,8 +4,8 @@ import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
-import { WebhookService } from '../../services/webhook.service';
 import { CameraService } from '../../services/camera.service';
+
 
 @Component({
   selector: 'app-camera',
@@ -17,6 +17,7 @@ import { CameraService } from '../../services/camera.service';
 })
 export class CameraComponent {
   resposta: any = null;
+  resposta2: any = null; // Recebe o JSON estruturado diretamente do n8n!   
 
   constructor(
     // private http: HttpClient,
@@ -30,7 +31,8 @@ export class CameraComponent {
 
       this.scanService.scanImage(file).subscribe({
         next: (response: any) => {         
-          this.resposta = response.resultado; // Recebe o JSON estruturado diretamente do n8n!          
+          this.resposta = response.endereco_organizado; // Recebe o JSON estruturado diretamente do n8n!     
+          this.resposta2 = response.id; // Recebe o JSON estruturado diretamente do n8n!        
         },
         error: (err: any) => {
           console.error('Erro ao processar imagem:', err);
