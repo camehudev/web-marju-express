@@ -1,0 +1,56 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build web assets
+        run: npm run build -- --prod
+
+      - name: Add Capacitor Android platform
+        run: |
+          npx cap add android
+          npx cap sync android
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build APK with Gradle
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Rename APK with automatic version/timestamp
+        run: |
+          # Cria uma tag de versão baseada na data, hora e hash curto do commit
+          VERSION=$(date +'%Y%m%d-%H%M%S')
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          
+          # Copia e renomeia o APK gerado para uma pasta de distribuição
+          mkdir -p dist-apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk dist-apk/marju-express-${VERSION}-${COMMIT_HASH}.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-debug-versioned
+          path: dist-apk/*.apk

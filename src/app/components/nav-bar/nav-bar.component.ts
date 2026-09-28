@@ -2,16 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { CameraComponent } from '../../pages/camera/camera.component';
+import { IonicModule } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [MenubarModule, CameraComponent],
+  imports: [MenubarModule, CameraComponent, IonicModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit {
   items: MenuItem[] | undefined;
+
+  constructor(private menuCtrl: MenuController) { }
+
+
+  // Exemplo para abrir o menu por código
+async abrirMenu() {
+  await this.menuCtrl.open('main-menu');
+}
+
+// Exemplo para fechar o menu por código
+    async fecharMenu() {
+  await this.menuCtrl.close('main-menu');
+}
+
+
 
 
   ngOnInit() {

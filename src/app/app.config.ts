@@ -5,10 +5,11 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loadingInterceptor } from './interceptors/loading.interceptor';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideIonicAngular } from '@ionic/angular/standalone';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(),provideHttpClient(),
-    provideAnimations(),provideHttpClient(withInterceptors([loadingInterceptor]))
+    provideAnimations(),provideHttpClient(withInterceptors([loadingInterceptor])), provideIonicAngular({}), provideIonicAngular({}), provideIonicAngular({}), provideIonicAngular({}), provideIonicAngular({})
   ]
 
 };

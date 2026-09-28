@@ -2,7 +2,7 @@ import {
   CommonModule,
   NgClass,
   NgStyle
-} from "./chunk-T76FZRMF.js";
+} from "./chunk-EFJ3UY54.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -21,8 +21,9 @@ import {
   ɵɵnamespaceSVG,
   ɵɵproperty,
   ɵɵstyleProp
-} from "./chunk-6JJ7KVRE.js";
-import "./chunk-T4QU4GDF.js";
+} from "./chunk-BRGRDHA6.js";
+import "./chunk-IYAEADMW.js";
+import "./chunk-QHQP2P2Z.js";
 
 // node_modules/primeng/fesm2022/primeng-progressspinner.mjs
 var ProgressSpinner = class _ProgressSpinner {
