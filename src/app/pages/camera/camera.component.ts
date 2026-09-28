@@ -5,18 +5,15 @@ import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { CameraService } from '../../services/camera.service';
-// Remova a importação individual de IonButton e IonIcon e substitua por:
-import { IonicModule } from '@ionic/angular';
 
 
 @Component({
   selector: 'app-camera',
   standalone: true,
-  imports: [ButtonModule, CommonModule, ToastModule, IonicModule],
+  imports: [ButtonModule, CommonModule, ToastModule],
   providers: [MessageService],
   templateUrl: './camera.component.html',
   styleUrl: './camera.component.css'
-
 })
 export class CameraComponent {
   resposta: any = null;
